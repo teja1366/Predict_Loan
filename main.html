@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lan="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equix="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Predict Loan status app</title>
+        <style>
+            h1 {
+            font-size: 3rem;
+			text-align: center;
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+            }
+			
+            body {
+            background-color: #292b2c;
+			color: #fff;
+			font-family: Arial, sans-serif;
+
+		    }
+            form {
+            background-color: #333;
+			color: #fff;
+			padding: 2rem;
+			border-radius: 0.5rem;
+			max-width: 600px;
+			margin: 0 auto;
+		} 
+        .center {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 10vh;
+		}
+		.center input[type="submit"] {
+			display: block;
+			margin: 0 auto;
+		}
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } 
+        </style>
+    </head>
+ <body>
+    <h1>LOAN APPLICATION</h1>
+    <hr>
+    {% if prediction %}
+    <h1> The Status of your loan is : {{prediction}}</h1>
+    {% endif %}
+    <div class="container">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="Gender">Gender:</label>
+            <select id="Gender" name="Gender">
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
+            
+        </div><br>
+        <div>
+            <label for="Married">Married:</label>
+            <select id="mMrried" name="Married">
+              <option value="1">Married</option>
+              <option value="0">Not married</option>
+            </select>
+            
+        </div><br>
+        <div>
+            <label for="Dependents">Dependents:</label>
+            <select id="Dependents" name="Dependents">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3+">3</option>
+            </select>
+              </div><br>
+        <div>
+            <label for="Education">Education:</label>
+            <select id="Education" name="Education">
+            <option value="1">Graduate</option>
+            <option value="0">Not Graduate</option>
+            </select>
+
+        </div><br>
+        <div>
+            <label for="Self_Employed">Self_Employed:</label>
+            <select id="Self_Employed" name="Self_Employed">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+            </select>
+        </div><br>
+        <div>
+            <label for="ApplicantIncome">Applicant Income:</label>
+            <input type="number" id="ApplicantIncome" name="ApplicantIncome" min="0" required>
+            
+        </div><br>
+        <div>
+            <label for="CoapplicantIncome">Coapplicant Income:</label>
+            <input type="number" id="CoapplicantIncome" name="CoapplicantIncome" min="0" required>
+        </div><br>
+        <div>
+            <label for="LoanAmount">Loan Amount:</label>
+            <input type="number" id="LoanAmount" name="LoanAmount" min="0" required>
+        </div><br>
+        <div>
+             <label for="Loan_Amount_Term">Loan Amount Term:</label>
+             <select id="Loan_Amount_Term" name="Loan_Amount_Term">
+                <option value="12">12 </option>
+                <option value="36">36 </option>
+                <option value="60">60 </option>
+                <option value="84">84 </option>
+                <option value="120">120 </option>
+                <option value="180">180 </option>
+                <option value="240">240 </option>
+                <option value="300">300 </option>
+                <option value="360">360 </option>
+                <option value="480">480 </option>
+            </select>
+        </div><br>
+        <div>
+             <label for="Credit_History">Credit History:</label>
+              <input type="number" id="Credit_History" name="Credit_History" min="0" max="1" req><br>
+                
+        </div><br>
+        <div>
+            <label for="Property_Area">Property Area:</label>
+            <select id="Property_Area" name="Property_Area">
+            <option value="2">Semiurban</option>
+            <option value="1">Urban</option>
+            <option value="0">Rural</option>
+            </select>
+        </div><br>
+        <div class="center">
+            <form action="#">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+     
+    
+    </form>
+</body>
+</html>
